@@ -1,0 +1,12 @@
+
+.DS_Store
+Thumbs.db
+
+build/
+bin/
+
+a.out
+*.o
+*.exe
+*.app
+
