@@ -1,0 +1,11 @@
+Testing things in C++
+
+Used command to build:
+g++ SOURCE -o OUTFILE -std=c++14
+
+build and run:
+g++ SOURCE -o OUTFILE -std=c++14 && ./OUTFILE
+
+run with file passed through stdin:
+cat TEXTFILE | ./OUTFILE
+
