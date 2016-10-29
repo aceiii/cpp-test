@@ -6,18 +6,7 @@
 #include <numeric>
 #include <iterator>
 
-template <typename T>
-std::ostream& operator << (std::ostream& os, const std::vector<T>& v) {
-    os << "[";
-    auto it = begin(v);
-    if (it != end(v)) {
-        os << *it;
-        while (++it != end(v)) {
-            os << ", " << *it;
-        }
-    }
-    return (os << "]");
-}
+#include "print.hpp"
 
 auto main() -> int {
 
@@ -50,6 +39,16 @@ auto main() -> int {
 
     copy(begin(v3), end(v3), std::inserter(v6, next(begin(v6))));
     std::cout << "v6 after:  " << v6 << std::endl;
+
+    std::vector<int> v7(16);
+    std::iota(begin(v7), end(v7), 934);
+
+    int a[16];
+    std::fill(std::begin(a), std::end(a), 9);
+    std::cout << "a: " << print(std::begin(a), std::end(a)) << std::endl;
+
+    std::copy(begin(v7), end(v7), std::begin(a));
+    std::cout << "a: " << print(std::begin(a), std::end(a)) << std::endl;
 
     return 0;
 }
