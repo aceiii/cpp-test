@@ -3,41 +3,7 @@
 #include <vector>
 #include <numeric>
 
-template <typename T>
-std::ostream& operator<< (std::ostream& os, const std::vector<T>& v) {
-    os << "[ ";
-    if (begin(v) != end(v)) {
-        os << *begin(v);
-    }
-    std::for_each(begin(v) + 1, end(v), [&os] (const T& i) {
-        os << ", " << i;
-    });
-    return (os << " ]");
-};
-
-template <typename It>
-struct print_list_t {
-    It begin;
-    It end;
-};
-
-template <typename It>
-print_list_t<It> print(It start, It stop) {
-    return print_list_t<It>{start, stop};
-}
-
-template <typename It>
-std::ostream& operator << (std::ostream& os, const print_list_t<It>& pl) {
-    os << "[ ";
-    It s = pl.begin;
-    if (s != pl.end) {
-        os << *s;
-        while (++s != pl.end) {
-            os << ", " << *s;
-        }
-    }
-    return (os << " ]");
-}
+#include "print.hpp"
 
 auto main() -> int {
 
